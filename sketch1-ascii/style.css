@@ -1,0 +1,13 @@
+body {
+  background: #000;
+  margin: 0;
+  padding: 20px;
+}
+
+#output {
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  line-height: 20px;
+  white-space: pre;
+  color: #0f0;
+}

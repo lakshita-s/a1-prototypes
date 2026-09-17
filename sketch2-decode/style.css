@@ -1,0 +1,61 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 50px;
+    background-color: #212121;
+    color: white;
+  }
+ 
+  /* the hoverable word */
+  .tooltip {
+    position: relative;
+    display: inline;
+    border-bottom: 1px dotted #ffde58;
+  }
+ 
+  /* the popup box, hidden by default */
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 220px;
+    background-color: #c26e84;
+    color: #000000;
+    text-align: left;
+    border-radius: 10px;
+    border-width:2px;
+    border-style:dotted;
+    border-color:#ffde58;
+    padding: 10px 12px;
+    font-size: 13px;
+    position: absolute;
+    z-index: 10;
+    bottom: 135%;
+    left: 55%;
+    transform: translateX(-45%);
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+  }
+ 
+  /* little arrow under the box */
+  .tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #c26e84 transparent transparent transparent;
+  }
+ 
+  /* show on hover */
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .indent {
+    display: inline-block; 
+    margin-left: 40px;
+  }

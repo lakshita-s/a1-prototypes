@@ -1,0 +1,252 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: #1c213f;
+  color: #fff;
+  font-family: "zingiber-std", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+.section {
+  background: #283268;
+  padding: 10px 0;
+}
+
+.section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section h1 {
+  font-size: 2.5rem;
+}
+
+.timeline {
+  width: 100%;
+  padding: 220px 4vw 220px;
+}
+
+.timeline ol {
+  position: relative;
+
+  /* 8 equal columns */
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* THE HORIZONTAL LINE */
+
+.timeline ol::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+  background: #978292;
+
+  transform: translateY(-50%);
+}
+
+
+/* EACH YEAR */
+
+.timeline ol li {
+  position: relative;
+
+  height: 3px;
+  background: transparent;
+
+  list-style: none;
+}
+
+
+/* YEAR DOT */
+
+.timeline ol li::after {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  width: 30px;
+  height: 30px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 20%;
+  background: #540007;
+}
+
+
+/* TOOLTIP */
+
+.timeline ol li div {
+  position: absolute;
+  z-index: 3;
+
+  left: 50%;
+
+  width: 160px;
+  padding: 10px;
+
+  transform: translateX(-50%);
+
+  font-size: 1rem;
+  line-height: 1.4;
+
+  color: black;
+  background: #dca4c5;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+/* TOOLTIP ARROW */
+
+.timeline ol li div::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  transform: translateX(-50%);
+
+  border-style: solid;
+}
+
+
+/* TOP ITEMS */
+
+.timeline ol li:nth-child(odd) div {
+  bottom: 40px;
+
+  transform: translateX(-50%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+  top: 100%;
+
+  border-width: 30px 8px 0 8px;
+  border-color: #dca4c5 transparent transparent transparent;
+}
+
+
+/* BOTTOM ITEMS */
+
+.timeline ol li:nth-child(even) div {
+  top: 40px;
+
+  transform: translateX(-50%);
+}
+
+.timeline ol li:nth-child(even) div::before {
+  bottom: 100%;
+
+  border-width: 0 8px 30px 8px;
+  border-color: transparent transparent #dca4c5 transparent;
+}
+
+
+/* YEAR */
+
+.timeline time {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+/* HOVER */
+
+.timeline ol li:hover div {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* LAPTOP / SMALLER SCREENS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media (max-width: 1200px) {
+  .timeline {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+
+  .timeline ol li div {
+    width: 145px;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* SMALL LAPTOP
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media (max-width: 900px) {
+  .timeline {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .timeline ol li div {
+    width: 125px;
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .timeline time {
+    font-size: 1rem;
+  }
+
+  .timeline ol li::after {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.pixel {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+ 
+    width: 600px;
+    height: auto;
+    image-rendering: pixelated;
+}
